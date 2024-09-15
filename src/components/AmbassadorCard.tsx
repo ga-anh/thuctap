@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Card = styled.div`
   background: #fff;
@@ -12,15 +13,7 @@ const Card = styled.div`
   width: 250px;
   margin: 0 10px;
   flex-shrink: 0;
-  margin-bottom:20px;
-`;
-
-const ImagePlaceholder = styled.div`
-  background: #ccc;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto 10px;
+  margin-bottom: 20px;
 `;
 
 const Name = styled.h3`
@@ -52,6 +45,10 @@ const ShopButton = styled.button`
   text-transform: uppercase;
 `;
 
+const Avatar = styled(Image)`
+  border-radius: 50%;
+`;
+
 interface AmbassadorCardProps {
   name: string;
   username: string;
@@ -60,7 +57,7 @@ interface AmbassadorCardProps {
 const AmbassadorCard: React.FC<AmbassadorCardProps> = ({ name, username }) => {
   return (
     <Card>
-      <ImagePlaceholder />
+      <Avatar src="/images/avatar.png" alt="Avatar" width={200} height={200} />
       <Name>{name}</Name>
       <Username>@{username}</Username>
       <SocialIcons>
